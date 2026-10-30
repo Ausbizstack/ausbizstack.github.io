@@ -1,0 +1,115 @@
+{
+  "name": "AusBizStack – DMARC, SPF & DKIM Checker – Bulk Domain Audit → Google Sheets",
+  "flow": [
+    {
+      "id": 1,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": false,
+        "useNewZLibDeCompress": true
+      },
+      "mapper": {
+        "url": "https://api.apify.com/v2/acts/ausbizstack~b2b-email-security-dmarc-spf-auditor/run-sync-get-dataset-items?timeout=300",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer YOUR_APIFY_TOKEN"
+          }
+        ],
+        "qs": [],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "data": "{\"domains\": [\"stripe.com\", \"canva.com\"]}",
+        "parseResponse": true,
+        "timeout": "300",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "rejectUnauthorized": true,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "gzip": true,
+        "useMtls": false,
+        "followAllRedirects": false
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "builtin:BasicFeeder",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "array": "{{1.data}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "__IMTCONN__": null
+      },
+      "mapper": {
+        "mode": "select",
+        "from": "drive",
+        "spreadsheetId": "",
+        "sheetId": "Results",
+        "includesHeaders": true,
+        "insertUnformatted": false,
+        "valueInputOption": "USER_ENTERED",
+        "insertDataOption": "INSERT_ROWS",
+        "values": {
+          "0": "{{2.domain}}",
+          "1": "{{2.emailProvider}}",
+          "2": "{{2.hasThirdPartySeg}}",
+          "3": "{{2.spoofingRiskLevel}}",
+          "4": "{{2.overallSecurityScore}}",
+          "5": "{{2.emailSecurityScore}}",
+          "6": "{{2.webHeaderSecurityScore}}",
+          "7": "{{2.mspLeadScore}}",
+          "8": "{{2.dmarcPolicy}}",
+          "9": "{{2.spfEnforcement}}",
+          "10": "{{2.spfLookupCountEstimate}}",
+          "11": "{{join(2.activeDkimSelectors; \", \")}}"
+        }
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}
