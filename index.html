@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AusBizStack Intelligence (@ausbizstack) — Deterministic B2B Data, KYB & MCP Actor Fleet</title>
-  <meta name="description" content="AusBizStack Intelligence (@ausbizstack) builds deterministic HTTP/2 B2B Tech-Stack, AI Search (GEO / llms.txt), DNS/DMARC Cyber Posture, Australian ABN KYB, Shopify Pixel & ATS Hiring Intent Actors on Apify Store." />
+  <title>AusBizStack Intelligence (@ausbizstack) — Deterministic B2B Data, KYB, Agent-Readiness &amp; MCP Actor Fleet</title>
+  <meta name="description" content="AusBizStack Intelligence (@ausbizstack) builds 11 pay-per-event Apify Actors: B2B tech-stack, AI Search (GEO / llms.txt), DNS/DMARC, Australian ABN KYB, Shopify pixels, ATS hiring signals, website screenshots, company enrichment and agent-readiness (poppy.json, MCP, A2A)." />
   <style>
     :root {
       --bg: #07090e;
@@ -626,7 +626,7 @@
         <span class="brand-handle">@ausbizstack</span>
       </a>
       <nav class="nav-links">
-        <a href="#fleet">8-Actor Fleet</a>
+        <a href="#fleet">11-Actor Fleet</a>
         <a href="#explorer">Live Dataset Explorer (40 Samples)</a>
         <a href="#make-blueprints">Make.com Blueprints</a>
         <a href="#templates">Sheets Templates</a>
@@ -638,7 +638,7 @@
 
   <main class="container">
     <section class="hero">
-      <div class="hero-eyebrow">⚡ Deterministic HTTP/2 B2B Data &amp; MCP Fleet · Zero Headless Browser Overhead</div>
+      <div class="hero-eyebrow">⚡ B2B Data, Agent-Readiness, Screenshots &amp; MCP Fleet on Apify</div>
       <h1>B2B Technical Posture, AI Search (GEO) &amp; KYB Intelligence Actors.</h1>
       <p class="lead">
         Built by <strong>AusBizStack Intelligence (<code>@ausbizstack</code>)</strong> for global B2B growth agencies, MSPs, RevOps engineers, fintech KYB teams, Make.com / Clay / n8n architects, and autonomous MCP AI Agents across the US, UK, EU, CA, and Australia.
@@ -650,15 +650,15 @@
       </div>
       <div class="stats-grid">
         <div class="stat-box">
-          <div class="stat-num">8 Actors</div>
-          <div class="stat-label">6 Live on Apify Store + 2 Rolling Out</div>
+          <div class="stat-num">11 Actors</div>
+          <div class="stat-label">All live on the Apify Store</div>
         </div>
         <div class="stat-box">
           <div class="stat-num">1,489+</div>
           <div class="stat-label">Verified Enriched B2B &amp; ABN Production Records</div>
         </div>
         <div class="stat-box">
-          <div class="stat-num">$0.01–$0.015</div>
+          <div class="stat-num">$0.003–$0.025</div>
           <div class="stat-label">Transparent Pay-Per-Event Pricing (No Subscriptions)</div>
         </div>
         <div class="stat-box">
@@ -671,9 +671,9 @@
     <section id="fleet">
       <div class="section-header">
         <div class="section-eyebrow">APIFY STORE FLEET · @AUSBIZSTACK</div>
-        <h2 class="section-title">8 Flagship Pay-Per-Event B2B Intelligence Actors</h2>
+        <h2 class="section-title">11 Pay-Per-Event B2B Intelligence Actors</h2>
         <p class="section-desc">
-          Every Actor runs on high-concurrency HTTP/2 and DNS-over-HTTPS with zero headless Chromium overhead—returning scored buyer-intent signals, and client-ready technical deliverables. Default concurrency 50 (max 200); failed domains are never charged.
+          Ten Actors run on high-concurrency HTTP/2 and DNS-over-HTTPS with no headless Chromium. The Website Screenshot API uses Playwright for full-page, mobile and PDF capture. Failed or blocked inputs are never charged. Concurrency defaults vary by Actor.
         </p>
       </div>
       <div class="actors-grid">
@@ -974,6 +974,119 @@
       </div>
     </article>
     
+    <article class="actor-card">
+      <div class="actor-card-top">
+        <div class="actor-meta-row">
+          <span class="actor-num">ACTOR #9</span>
+          <span class="status-badge badge-live">LIVE ON APIFY STORE</span>
+        </div>
+        <h3 class="actor-title">
+          <a href="https://apify.com/ausbizstack/website-screenshot-api" target="_blank" rel="noopener noreferrer">Website Screenshot API – Bulk Full-Page, Mobile &amp; PDF</a>
+        </h3>
+        <div class="actor-slug"><code>ausbizstack/website-screenshot-api</code></div>
+        <p class="actor-desc">Website screenshot API. Input: URLs, domains or a sitemap. Returns one row per URL with a full-page screenshot (desktop, mobile, tablet; PNG/JPEG/WebP) and optional URL to PDF. Accepts cookie banners, removes popups, ads and chat. $0.003 per screenshot; failed or bot-blocked URLs free. MCP-ready.</p>
+        <div class="cat-row"><span class="cat-pill">DEVELOPER_TOOLS</span><span class="cat-pill">AUTOMATION</span><span class="cat-pill">SEO_TOOLS</span></div>
+        <div class="fields-block">
+          <div class="fields-label">KEY DETERMINISTIC OUTPUT FIELDS</div>
+          <div class="fields-list"><code>url</code><code>finalUrl</code><code>status</code><code>httpStatus</code><code>title</code><code>screenshotUrl</code><code>mobileScreenshotUrl</code><code>tabletScreenshotUrl</code><code>pdfUrl</code><code>format</code></div>
+        </div>
+      </div>
+      <div class="actor-card-bottom">
+        <div class="pricing-strip">
+          <div>
+            <span class="price-val">$0.003</span>
+            <span class="price-unit">/ screenshot</span>
+            <div class="event-tag">Event: <code>Screenshot taken</code></div>
+            <div class="event-tag">Optional PDF: $0.002 (<code>PDF generated</code>)</div>
+          </div>
+          <div class="perf-meta">
+            <div>Node.js + Playwright Chromium</div>
+            <div class="speed-tag">Full-page, mobile, tablet &amp; PDF capture</div>
+          </div>
+        </div>
+        <div class="event-tag" style="margin:8px 0;color:#10b981">✅ Zero Charge for Failed or Blocked URLs ($0 on errors) · Default Concurrency auto (2 pages/GB, max 10)</div>
+        <div class="card-actions">
+          <a href="https://apify.com/ausbizstack/website-screenshot-api" target="_blank" rel="noopener noreferrer" class="btn-primary">Open Actor on Apify Store →</a>
+          <a href="templates/make/website-screenshot-api.blueprint.json" download class="btn-secondary" title="Download Make.com Automation Blueprint JSON">⬇ Make.com Blueprint</a>
+        </div>
+      </div>
+    </article>
+    
+    <article class="actor-card">
+      <div class="actor-card-top">
+        <div class="actor-meta-row">
+          <span class="actor-num">ACTOR #10</span>
+          <span class="status-badge badge-live">LIVE ON APIFY STORE</span>
+        </div>
+        <h3 class="actor-title">
+          <a href="https://apify.com/ausbizstack/company-enrichment-by-domain" target="_blank" rel="noopener noreferrer">Company Enrichment by Domain – B2B Company Card</a>
+        </h3>
+        <div class="actor-slug"><code>ausbizstack/company-enrichment-by-domain</code></div>
+        <p class="actor-desc">Company enrichment API by domain. Input: domains or URLs. Returns one B2B company card per domain: DMARC/SPF/DKIM email security, tech stack, CMS, ecommerce, llms.txt AI readiness, careers/ATS hiring, public emails, phones, socials, AU ABN match and overall score. $0.02/company; blocked rows free.</p>
+        <div class="cat-row"><span class="cat-pill">LEAD_GENERATION</span><span class="cat-pill">DEVELOPER_TOOLS</span><span class="cat-pill">AI</span></div>
+        <div class="fields-block">
+          <div class="fields-label">KEY DETERMINISTIC OUTPUT FIELDS</div>
+          <div class="fields-list"><code>domain</code><code>companyName</code><code>overallScore</code><code>dmarcPolicy</code><code>techStack</code><code>cms</code><code>aiReadinessScore</code><code>atsProvider</code><code>publicEmails</code><code>abn</code></div>
+        </div>
+      </div>
+      <div class="actor-card-bottom">
+        <div class="pricing-strip">
+          <div>
+            <span class="price-val">$0.02</span>
+            <span class="price-unit">/ company</span>
+            <div class="event-tag">Event: <code>Company enriched</code></div>
+          </div>
+          <div class="perf-meta">
+            <div>Python 3.12 HTTP + DNS</div>
+            <div class="speed-tag">HTTP &amp; DNS probes · 0 Browser Overhead</div>
+          </div>
+        </div>
+        <div class="event-tag" style="margin:8px 0;color:#10b981">✅ Zero Charge for Failed or Blocked Domains ($0 on errors) · Default Concurrency 8 (max 20)</div>
+        <div class="card-actions">
+          <a href="https://apify.com/ausbizstack/company-enrichment-by-domain" target="_blank" rel="noopener noreferrer" class="btn-primary">Open Actor on Apify Store →</a>
+          <a href="templates/make/company-enrichment-by-domain.blueprint.json" download class="btn-secondary" title="Download Make.com Automation Blueprint JSON">⬇ Make.com Blueprint</a>
+        </div>
+      </div>
+    </article>
+    
+    <article class="actor-card">
+      <div class="actor-card-top">
+        <div class="actor-meta-row">
+          <span class="actor-num">ACTOR #11</span>
+          <span class="status-badge badge-live">LIVE ON APIFY STORE</span>
+        </div>
+        <h3 class="actor-title">
+          <a href="https://apify.com/ausbizstack/agent-readiness-bulk-auditor" target="_blank" rel="noopener noreferrer">Agent-Readiness Auditor | poppy.json, llms.txt &amp; MCP Checker</a>
+        </h3>
+        <div class="actor-slug"><code>ausbizstack/agent-readiness-bulk-auditor</code></div>
+        <p class="actor-desc">Bulk AI agent-readiness audit: one row per domain with a 0-100 score, 15 evidence-backed checks (poppy.json 1.0, llms.txt, AI crawlers, MCP, A2A Agent Card, OpenAPI, JSON-LD), prioritised fixes and ready-to-paste files. $0.02/domain; failed rows free.</p>
+        <div class="cat-row"><span class="cat-pill">AI</span><span class="cat-pill">SEO_TOOLS</span><span class="cat-pill">DEVELOPER_TOOLS</span></div>
+        <div class="fields-block">
+          <div class="fields-label">KEY DETERMINISTIC OUTPUT FIELDS</div>
+          <div class="fields-list"><code>agentReadinessScore</code><code>grade</code><code>poppyJsonStatus</code><code>hasLlmsTxt</code><code>hasMcpDiscovery</code><code>hasA2aAgentCard</code><code>hasOpenApi</code><code>allowedAiCrawlers</code><code>topFix</code><code>fixSnippets</code></div>
+        </div>
+      </div>
+      <div class="actor-card-bottom">
+        <div class="pricing-strip">
+          <div>
+            <span class="price-val">$0.02</span>
+            <span class="price-unit">/ domain</span>
+            <div class="event-tag">Event: <code>Domain agent-readiness audit</code></div>
+          </div>
+          <div class="perf-meta">
+            <div>Node.js 20 HTTP/2</div>
+            <div class="speed-tag">⚡ ~1–5s / domain · 0 Browser Overhead</div>
+          </div>
+        </div>
+        <div class="event-tag" style="margin:8px 0;color:#10b981">✅ Zero Charge for Failed Domains ($0 on errors) · Default Concurrency 10 (max 50; capped at 11 on 256 MB)</div>
+        <div class="card-actions">
+          <a href="https://apify.com/ausbizstack/agent-readiness-bulk-auditor" target="_blank" rel="noopener noreferrer" class="btn-primary">Open Actor on Apify Store →</a>
+          <a href="templates/make/agent-readiness-bulk-auditor.blueprint.json" download class="btn-secondary" title="Download Make.com Automation Blueprint JSON">⬇ Make.com Blueprint</a>
+        </div>
+      </div>
+    </article>
+    
+
       </div>
     </section>
 
@@ -1135,6 +1248,49 @@
       </div>
     </div>
     
+    <div class="bp-card">
+      <div class="bp-info">
+        <div class="bp-title-row">
+          <span class="actor-num">#9</span>
+          <strong>Website Screenshot API – Bulk Full-Page, Mobile &amp; PDF</strong>
+          <span class="status-badge badge-live">LIVE ON APIFY STORE</span>
+        </div>
+        <div class="bp-sub">Webhook Trigger → <code>POST /v2/acts/ausbizstack~website-screenshot-api/run-sync-get-dataset-items</code> → Iterator → JSON Webhook Responder</div>
+      </div>
+      <div class="bp-actions">
+        <a href="templates/make/website-screenshot-api.blueprint.json" download class="btn-download">⬇ Download <code>website-screenshot-api.blueprint.json</code></a>
+      </div>
+    </div>
+    
+    <div class="bp-card">
+      <div class="bp-info">
+        <div class="bp-title-row">
+          <span class="actor-num">#10</span>
+          <strong>Company Enrichment by Domain – B2B Company Card</strong>
+          <span class="status-badge badge-live">LIVE ON APIFY STORE</span>
+        </div>
+        <div class="bp-sub">Webhook Trigger → <code>POST /v2/acts/ausbizstack~company-enrichment-by-domain/run-sync-get-dataset-items</code> → Iterator → JSON Webhook Responder</div>
+      </div>
+      <div class="bp-actions">
+        <a href="templates/make/company-enrichment-by-domain.blueprint.json" download class="btn-download">⬇ Download <code>company-enrichment-by-domain.blueprint.json</code></a>
+      </div>
+    </div>
+    
+    <div class="bp-card">
+      <div class="bp-info">
+        <div class="bp-title-row">
+          <span class="actor-num">#11</span>
+          <strong>Agent-Readiness Auditor | poppy.json, llms.txt &amp; MCP Checker</strong>
+          <span class="status-badge badge-live">LIVE ON APIFY STORE</span>
+        </div>
+        <div class="bp-sub">Webhook Trigger → <code>POST /v2/acts/ausbizstack~agent-readiness-bulk-auditor/run-sync-get-dataset-items</code> → Iterator → JSON Webhook Responder</div>
+      </div>
+      <div class="bp-actions">
+        <a href="templates/make/agent-readiness-bulk-auditor.blueprint.json" download class="btn-download">⬇ Download <code>agent-readiness-bulk-auditor.blueprint.json</code></a>
+      </div>
+    </div>
+    
+
       </div>
     </section>
 
@@ -1258,6 +1414,49 @@
         <a href="templates/n8n/multi-location-franchise-footprint-mapper.workflow.json" download class="btn-download">⬇ n8n</a>
       </div>
     </div>
+
+    <div class="bp-card">
+      <div class="bp-info">
+        <div class="bp-title-row">
+          <span class="actor-num">#9</span>
+          <strong>Website Screenshot API – Bulk Full-Page, Mobile &amp; PDF</strong>
+        </div>
+        <div class="bp-sub">Run Actor → <code>run-sync-get-dataset-items</code> → Google Sheets (append row) · <a href="https://apify.com/ausbizstack/website-screenshot-api">Store page</a> · <a href="templates/website-screenshot-api/README.md">Setup</a></div>
+      </div>
+      <div class="bp-actions">
+        <a href="templates/make/website-screenshot-api.blueprint.json" download class="btn-download">⬇ Make</a>
+        <a href="templates/n8n/website-screenshot-api.workflow.json" download class="btn-download">⬇ n8n</a>
+      </div>
+    </div>
+
+    <div class="bp-card">
+      <div class="bp-info">
+        <div class="bp-title-row">
+          <span class="actor-num">#10</span>
+          <strong>Company Enrichment by Domain – B2B Company Card</strong>
+        </div>
+        <div class="bp-sub">Run Actor → <code>run-sync-get-dataset-items</code> → Google Sheets (append row) · <a href="https://apify.com/ausbizstack/company-enrichment-by-domain">Store page</a> · <a href="templates/company-enrichment-by-domain/README.md">Setup</a></div>
+      </div>
+      <div class="bp-actions">
+        <a href="templates/make/company-enrichment-by-domain.blueprint.json" download class="btn-download">⬇ Make</a>
+        <a href="templates/n8n/company-enrichment-by-domain.workflow.json" download class="btn-download">⬇ n8n</a>
+      </div>
+    </div>
+
+    <div class="bp-card">
+      <div class="bp-info">
+        <div class="bp-title-row">
+          <span class="actor-num">#11</span>
+          <strong>Agent-Readiness Auditor | poppy.json, llms.txt &amp; MCP Checker</strong>
+        </div>
+        <div class="bp-sub">Run Actor → <code>run-sync-get-dataset-items</code> → Google Sheets (append row) · <a href="https://apify.com/ausbizstack/agent-readiness-bulk-auditor">Store page</a> · <a href="templates/agent-readiness-bulk-auditor/README.md">Setup</a></div>
+      </div>
+      <div class="bp-actions">
+        <a href="templates/make/agent-readiness-bulk-auditor.blueprint.json" download class="btn-download">⬇ Make</a>
+        <a href="templates/n8n/agent-readiness-bulk-auditor.workflow.json" download class="btn-download">⬇ n8n</a>
+      </div>
+    </div>
+
       </div>
     </section>
 
@@ -1284,7 +1483,7 @@
         "-y",
         "@apify/actors-mcp-server",
         "--actors",
-        "ausbizstack/b2b-tech-stack-contact-abn-enricher,ausbizstack/ai-geo-llms-txt-auditor,ausbizstack/b2b-email-security-dmarc-spf-auditor,ausbizstack/au-abn-kyb-commercial-lead-enricher,ausbizstack/shopify-ecommerce-tech-pixel-auditor"
+        "ausbizstack/b2b-tech-stack-contact-abn-enricher,ausbizstack/ai-geo-llms-txt-auditor,ausbizstack/b2b-email-security-dmarc-spf-auditor,ausbizstack/au-abn-kyb-commercial-lead-enricher,ausbizstack/shopify-ecommerce-tech-pixel-auditor,ausbizstack/b2b-hiring-intent-ats-careers-enricher,ausbizstack/b2b-saas-pricing-tier-plg-auditor,ausbizstack/multi-location-franchise-footprint-mapper,ausbizstack/website-screenshot-api,ausbizstack/company-enrichment-by-domain,ausbizstack/agent-readiness-bulk-auditor"
       ],
       "env": {
         "APIFY_TOKEN": "YOUR_APIFY_API_TOKEN"
@@ -1315,9 +1514,9 @@
 
   <footer>
     <div class="container">
-      <p><strong>AusBizStack Intelligence (<code>@ausbizstack</code>)</strong> · Deterministic B2B Data, Cyber Posture, Australian ABN KYB &amp; AI Search (GEO) Apify Store Fleet</p>
+      <p><strong>AusBizStack Intelligence (<code>@ausbizstack</code>)</strong> · Deterministic B2B Data, Cyber Posture, Australian ABN KYB, Agent-Readiness, Screenshots &amp; AI Search (GEO) Apify Store Fleet</p>
       <p style="margin-top:0.4rem;">
-        <a href="https://apify.com/ausbizstack/multi-location-franchise-footprint-mapper" target="_blank" rel="noopener noreferrer">https://apify.com/ausbizstack</a> · Privacy-by-Design (100% Role-Based Corporate Contacts Only · Published Role-Based Corporate Contacts Only)
+        <a href="https://apify.com/ausbizstack" target="_blank" rel="noopener noreferrer">https://apify.com/ausbizstack</a> · Privacy-by-Design (100% Role-Based Corporate Contacts Only · Published Role-Based Corporate Contacts Only)
       </p>
     </div>
   </footer>
