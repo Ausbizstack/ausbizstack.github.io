@@ -1,0 +1,117 @@
+{
+  "name": "AusBizStack \u2013 Website Screenshot API \u2013 Bulk Full-Page, Mobile & PDF \u2192 Google Sheets",
+  "flow": [
+    {
+      "id": 1,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": false,
+        "useNewZLibDeCompress": true
+      },
+      "mapper": {
+        "url": "https://api.apify.com/v2/acts/ausbizstack~website-screenshot-api/run-sync-get-dataset-items?timeout=300",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer YOUR_APIFY_TOKEN"
+          }
+        ],
+        "qs": [],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "data": "{\"urls\": [\"https://stripe.com\", \"https://www.apple.com\", \"https://www.bbc.com\"]}",
+        "parseResponse": true,
+        "timeout": "300",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "rejectUnauthorized": true,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "gzip": true,
+        "useMtls": false,
+        "followAllRedirects": false
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "builtin:BasicFeeder",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "array": "{{1.data}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "__IMTCONN__": null
+      },
+      "mapper": {
+        "mode": "select",
+        "from": "drive",
+        "spreadsheetId": "",
+        "sheetId": "Results",
+        "includesHeaders": true,
+        "insertUnformatted": false,
+        "valueInputOption": "USER_ENTERED",
+        "insertDataOption": "INSERT_ROWS",
+        "values": {
+          "0": "{{2.url}}",
+          "1": "{{2.finalUrl}}",
+          "2": "{{2.status}}",
+          "3": "{{2.httpStatus}}",
+          "4": "{{2.title}}",
+          "5": "{{2.screenshotUrl}}",
+          "6": "{{2.mobileScreenshotUrl}}",
+          "7": "{{2.tabletScreenshotUrl}}",
+          "8": "{{2.pdfUrl}}",
+          "9": "{{2.width}}",
+          "10": "{{2.height}}",
+          "11": "{{2.format}}",
+          "12": "{{2.durationMs}}",
+          "13": "{{2.error}}"
+        }
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    }
+  }
+}
