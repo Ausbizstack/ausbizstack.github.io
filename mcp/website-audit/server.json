@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Ausbizstack/website-audit",
+  "title": "AusBizStack Website Audit",
+  "description": "Bulk Lighthouse/Core Web Vitals, AI agent-readiness and llms.txt audits via Apify Actors.",
+  "repository": {
+    "url": "https://github.com/Ausbizstack/ausbizstack.github.io",
+    "source": "github",
+    "subfolder": "mcp/website-audit"
+  },
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/Ausbizstack/ausbizstack.github.io/tree/main/mcp/website-audit",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.apify.com/?tools=ausbizstack/lighthouse-core-web-vitals-bulk-auditor,ausbizstack/agent-readiness-bulk-auditor,ausbizstack/ai-geo-llms-txt-auditor",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional. Your Apify API token as 'Bearer <token>'. Leave empty to sign in to Apify with OAuth.",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

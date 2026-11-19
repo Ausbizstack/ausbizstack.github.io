@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "ausbizstack-website-audit": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote@latest",
+        "https://mcp.apify.com/?tools=ausbizstack/lighthouse-core-web-vitals-bulk-auditor,ausbizstack/agent-readiness-bulk-auditor,ausbizstack/ai-geo-llms-txt-auditor"
+      ]
+    }
+  }
+}

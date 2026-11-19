@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "ausbizstack-website-audit": {
+      "url": "https://mcp.apify.com/?tools=ausbizstack/lighthouse-core-web-vitals-bulk-auditor,ausbizstack/agent-readiness-bulk-auditor,ausbizstack/ai-geo-llms-txt-auditor"
+    }
+  }
+}
