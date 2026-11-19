@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "ausbizstack-b2b-enrichment": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote@latest",
+        "https://mcp.apify.com/?tools=ausbizstack/company-enrichment-by-domain,ausbizstack/b2b-tech-stack-contact-abn-enricher,ausbizstack/b2b-email-security-dmarc-spf-auditor,ausbizstack/au-abn-kyb-commercial-lead-enricher,ausbizstack/b2b-hiring-intent-ats-careers-enricher,ausbizstack/shopify-ecommerce-tech-pixel-auditor"
+      ]
+    }
+  }
+}

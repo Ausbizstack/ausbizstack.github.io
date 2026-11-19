@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Ausbizstack/b2b-enrichment",
+  "title": "AusBizStack B2B Enrichment",
+  "description": "Company data, tech stack, DMARC/SPF, ABN, hiring and Shopify signals by domain via Apify.",
+  "repository": {
+    "url": "https://github.com/Ausbizstack/ausbizstack.github.io",
+    "source": "github",
+    "subfolder": "mcp/b2b-enrichment"
+  },
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/Ausbizstack/ausbizstack.github.io/tree/main/mcp/b2b-enrichment",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.apify.com/?tools=ausbizstack/company-enrichment-by-domain,ausbizstack/b2b-tech-stack-contact-abn-enricher,ausbizstack/b2b-email-security-dmarc-spf-auditor,ausbizstack/au-abn-kyb-commercial-lead-enricher,ausbizstack/b2b-hiring-intent-ats-careers-enricher,ausbizstack/shopify-ecommerce-tech-pixel-auditor",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional. Your Apify API token as 'Bearer <token>'. Leave empty to sign in to Apify with OAuth.",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
