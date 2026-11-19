@@ -1,0 +1,558 @@
+{
+  "schemaVersion": 1,
+  "title": "Which AI tools support Claude linked billing?",
+  "updated": "2026-11-19",
+  "launch": {
+    "date": "2026-11-17",
+    "status": "beta",
+    "announcement": "https://claude.com/resources/articles/linked-billing-on-claude-platform",
+    "releaseNotes": "https://platform.claude.com/docs/en/release-notes/overview",
+    "developerDocs": "https://platform.claude.com/docs/en/manage-claude/oauth-apps/organization-billing-connections",
+    "platformHelp": "https://support.claude.com/en/articles/18467110-offer-linked-billing-in-your-platform",
+    "customerHelp": "https://support.claude.com/en/articles/18467148-use-your-claude-platform-account-in-a-third-party-app",
+    "marketplace": "https://claude.com/marketplace/agents-products"
+  },
+  "categories": [
+    "Code",
+    "Productivity",
+    "Data",
+    "Creative",
+    "Security",
+    "Infrastructure"
+  ],
+  "notes": "Append new platforms to `platforms`. Every entry needs at least one primary source (Anthropic page or the platform's own docs/blog/changelog). Never cite an aggregator or an AI agent. `added` = date this tracker first listed it; `lastVerified` = date a human or radar run re-opened the sources. `launchCohort: true` only for the 19 named in Anthropic's 17 Nov 2026 announcement. `logo` (optional): path to a locally saved logo under site/logos/, only once usage rights are confirmed; otherwise a monogram is drawn.",
+  "platforms": [
+    {
+      "id": "asana",
+      "name": "Asana",
+      "category": "Productivity",
+      "summary": "Work management platform for teams running work across people and AI agents.",
+      "covers": "Claude usage that powers Asana's agentic work management, including AI Studio and AI Teammates.",
+      "notCovered": "Asana's own subscription is billed separately by Asana.",
+      "availability": "Not stated in source",
+      "fallback": "Not stated in source",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Anthropic launch announcement (Asana quote)",
+          "url": "https://claude.com/resources/articles/linked-billing-on-claude-platform",
+          "type": "anthropic"
+        },
+        {
+          "label": "Claude Marketplace: Asana",
+          "url": "https://claude.com/marketplace/agents-products/asana",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "clickhouse-cloud",
+      "name": "ClickHouse Cloud",
+      "category": "Data",
+      "summary": "Fully managed analytical database for data engineers, developers and AI agents.",
+      "covers": "All Claude model usage across ClickHouse Cloud products, such as ClickHouse Agents, at your Claude organization's rates and commitments.",
+      "notCovered": "Organizations with HIPAA or PCI DSS compliance enabled can't link; their Claude models keep being served from Amazon Bedrock.",
+      "availability": "Public preview; ClickHouse Cloud organizations without HIPAA or PCI DSS compliance enabled (ClickHouse Admin role needed)",
+      "fallback": "Claude requests stop until the spend limit resets or is raised",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "ClickHouse docs: Linked billing with Claude Platform",
+          "url": "https://clickhouse.com/docs/products/cloud/features/ai-ml/linked-billing-claude-platform",
+          "type": "platform"
+        },
+        {
+          "label": "ClickHouse blog announcement",
+          "url": "https://clickhouse.com/blog/claude-platform-linked-billing",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: ClickHouse Cloud",
+          "url": "https://claude.com/marketplace/agents-products/clickhouse-cloud",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "cosmos-by-harness",
+      "name": "Cosmos by Harness",
+      "category": "Code",
+      "summary": "Software factory that takes engineering work from ticket to production.",
+      "covers": "Claude API usage in Cosmos by Harness.",
+      "notCovered": "Any Harness subscription is billed separately.",
+      "availability": "Not stated in source",
+      "fallback": "Not stated in source",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Anthropic launch announcement (Harness quote)",
+          "url": "https://claude.com/resources/articles/linked-billing-on-claude-platform",
+          "type": "anthropic"
+        },
+        {
+          "label": "Claude Marketplace: Cosmos by Harness",
+          "url": "https://claude.com/marketplace/agents-products/cosmos-by-harness",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "factory",
+      "name": "Factory",
+      "category": "Code",
+      "summary": "Claude-powered Droids for planning, coding, review, testing and incident response.",
+      "covers": "Claude usage in Factory. An admin links the Claude organization once instead of sharing an API key.",
+      "notCovered": "Factory's own subscription is billed separately.",
+      "availability": "Not stated in source (Anthropic quote refers to enterprise customers)",
+      "fallback": "Not stated in source",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Anthropic launch announcement (Factory quote)",
+          "url": "https://claude.com/resources/articles/linked-billing-on-claude-platform",
+          "type": "anthropic"
+        },
+        {
+          "label": "Claude Marketplace: Factory",
+          "url": "https://claude.com/marketplace/agents-products/factory",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "gumloop",
+      "name": "Gumloop",
+      "category": "Productivity",
+      "summary": "Lets anyone at a company build and use agents to automate their work.",
+      "covers": "Claude model calls in Gumloop agents and flows, at 0 Gumloop model credits (same as bring-your-own-key).",
+      "notCovered": "Tool calls and compute are charged as usual, and agent chats carry a 16% orchestration fee instead of 8%. Other providers need their own key.",
+      "availability": "Enterprise (organization-wide, set by an org admin) or Pro (personal)",
+      "fallback": "Claude calls fail; agents with model fallback switch to their fallback model",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Gumloop help: Use linked billing for Claude",
+          "url": "https://docs.gumloop.com/help/connectors/link-your-claude-organization",
+          "type": "platform"
+        },
+        {
+          "label": "Gumloop docs: Credits (BYOK and linked billing)",
+          "url": "https://docs.gumloop.com/core-concepts/credits",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Gumloop",
+          "url": "https://claude.com/marketplace/agents-products/gumloop",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "higgsfield-ai",
+      "name": "Higgsfield AI",
+      "category": "Creative",
+      "summary": "AI creative production platform for marketing teams, agencies and filmmakers.",
+      "covers": "Claude usage in Supercomputer chats (web, mobile, Slack, Telegram) and the studio assistants, plus their sub-agents and context compaction. Playable Ads runs on Enterprise plans.",
+      "notCovered": "Image, video, audio and 3D generations, paid agent tools and non-Claude models still use Higgsfield credits.",
+      "availability": "Team, Scale and Enterprise workspaces",
+      "fallback": "Switches to Higgsfield credits for the rest of the reply",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Higgsfield blog: launch partner for linked billing",
+          "url": "https://higgsfield.ai/blog/higgsfield-anthropic-linked-billing",
+          "type": "platform"
+        },
+        {
+          "label": "Higgsfield docs: Link your Claude organization",
+          "url": "https://docs.higgsfield.ai/docs/enterprise/connect-claude-organization",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Higgsfield AI",
+          "url": "https://claude.com/marketplace/agents-products/higgsfield-ai",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "kilo-code",
+      "name": "Kilo Code",
+      "category": "Code",
+      "summary": "AI coding agent for VS Code, JetBrains, the terminal and Kilo Desktop (listed by Anthropic as Kilo by Anaconda).",
+      "covers": "Claude API usage in all Kilo features through the Kilo Gateway, including Kilo Desktop, Cloud Agents, the CLI and Code Reviews. Personal and organization links.",
+      "notCovered": "Kilo charges no credits for linked requests. Claude Pro and Max subscriptions don't qualify.",
+      "availability": "Personal accounts and organizations",
+      "fallback": "Request fails (no fallback to Kilo credits)",
+      "launchDate": "2026-11-17",
+      "platformPostDate": "2026-11-18",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Kilo blog: Kilo now supports linked billing",
+          "url": "https://blog.kilo.ai/p/kilo-now-supports-linked-billing",
+          "type": "platform"
+        },
+        {
+          "label": "Kilo docs: Claude linked billing",
+          "url": "https://kilo.ai/docs/ai-providers/claude-linked-billing",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Kilo by Anaconda",
+          "url": "https://claude.com/marketplace/agents-products/kilo-by-anaconda",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "linear",
+      "name": "Linear",
+      "category": "Productivity",
+      "summary": "Product development system; its cloud coding agent turns issues into draft pull requests.",
+      "covers": "Model usage for Claude Code coding sessions in Linear's cloud coding agent, including sessions started by Loops.",
+      "notCovered": "Loop usage and sandbox runtime still use Linear AI credits.",
+      "availability": "All Linear plans that include the cloud coding agent",
+      "fallback": "Work stops (no fallback to Linear credits)",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Linear docs: Cloud coding agent (Link your Claude organization)",
+          "url": "https://linear.app/docs/linear-cloud-coding-agent",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Linear",
+          "url": "https://claude.com/marketplace/agents-products/linear",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "major",
+      "name": "Major",
+      "category": "Code",
+      "summary": "Governed platform to build, ship and run internal apps, workflows and AI agents.",
+      "covers": "Claude usage from chats, agents and apps that use Major's AI proxy.",
+      "notCovered": "Major still shows your usage, priced at Anthropic's list price.",
+      "availability": "Enterprise plan (contact Major to enable)",
+      "fallback": "Claude calls fail (no fallback to Major credentials)",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Major docs: Models (Link your Claude organization)",
+          "url": "https://docs.major.build/settings/models",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Major",
+          "url": "https://claude.com/marketplace/agents-products/major",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "mintlify",
+      "name": "Mintlify",
+      "category": "Code",
+      "summary": "Documentation and knowledge platform for customers, internal teams and AI agents.",
+      "covers": "Claude API usage from the Mintlify assistant, agent, automations and Autopilot, per project.",
+      "notCovered": "Mintlify's subscription is billed separately.",
+      "availability": "Enterprise, with bring-your-own-model on contract",
+      "fallback": "AI features stop on linked projects",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Mintlify blog: Enterprise supports linked billing",
+          "url": "https://www.mintlify.com/blog/claude-linked-billing",
+          "type": "platform"
+        },
+        {
+          "label": "Mintlify docs: Bring your own model",
+          "url": "https://www.mintlify.com/docs/ai/bring-your-own-model",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Mintlify",
+          "url": "https://claude.com/marketplace/agents-products/mintlify",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "niteshift",
+      "name": "Niteshift",
+      "category": "Code",
+      "summary": "Cloud agent platform running Claude Code and Codex in full-stack dev environments.",
+      "covers": "Claude usage from Niteshift tasks, billed to the linked Claude organization under its existing terms.",
+      "notCovered": "Codex runs use OpenAI credentials you provide; only Claude usage goes through the link.",
+      "availability": "A Niteshift organization admin links it for the whole organization",
+      "fallback": "Tasks that can't bill stop with Anthropic's billing error",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Niteshift docs: Model access and billing",
+          "url": "https://docs.niteshift.dev/customizing-agents/model-access",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Niteshift",
+          "url": "https://claude.com/marketplace/agents-products/niteshift",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "omni-analytics",
+      "name": "Omni Analytics",
+      "category": "Data",
+      "summary": "AI analytics platform built on a governed semantic layer.",
+      "covers": "Claude usage in Omni, traceable back to Omni alongside Omni's own usage tracking.",
+      "notCovered": "Any Omni subscription is billed separately.",
+      "availability": "Not stated in source",
+      "fallback": "Not stated in source",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Anthropic launch announcement (Omni quote)",
+          "url": "https://claude.com/resources/articles/linked-billing-on-claude-platform",
+          "type": "anthropic"
+        },
+        {
+          "label": "Claude Marketplace: Omni Analytics",
+          "url": "https://claude.com/marketplace/agents-products/omni-analytics",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "openart",
+      "name": "OpenArt",
+      "category": "Creative",
+      "summary": "AI video agent platform for ads, series and brand films.",
+      "covers": "Claude API usage in OpenArt's agentic layer.",
+      "notCovered": "Any OpenArt subscription is billed separately.",
+      "availability": "Not stated in source",
+      "fallback": "Not stated in source",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Anthropic launch announcement (OpenArt quote)",
+          "url": "https://claude.com/resources/articles/linked-billing-on-claude-platform",
+          "type": "anthropic"
+        },
+        {
+          "label": "Claude Marketplace: OpenArt",
+          "url": "https://claude.com/marketplace/agents-products/openart",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "railway",
+      "name": "Railway",
+      "category": "Code",
+      "summary": "Cloud platform that builds, deploys, networks and scales your apps.",
+      "covers": "Claude API usage in Railway Agent, Cloud Agents and the Slack and Discord bots.",
+      "notCovered": "Only billing is linked; requests still run in Railway's organization.",
+      "availability": "Railway workspace admin starts the link",
+      "fallback": "Agents retry; members can switch to a Railway model",
+      "launchDate": "2026-11-17",
+      "platformPostDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Railway blog: Railway now supports linked billing",
+          "url": "https://blog.railway.com/p/linked-billing-claude-platform",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Railway",
+          "url": "https://claude.com/marketplace/agents-products/railway",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "ramp-router",
+      "name": "Ramp Router",
+      "category": "Infrastructure",
+      "summary": "One endpoint that routes requests across leading AI models.",
+      "covers": "Claude requests Router sends directly to Anthropic, across its Responses, Chat Completions and Messages endpoints, for every company API key.",
+      "notCovered": "Claude via Amazon Bedrock, requests using Anthropic's code execution tool, and members' own Anthropic keys.",
+      "availability": "Limited availability (Router Admin role required)",
+      "fallback": "Served with your other credentials",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Router docs: Claude organization billing",
+          "url": "https://docs.router.com/guides/claude-organization-billing",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Ramp Router",
+          "url": "https://claude.com/marketplace/agents-products/ramp-router",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "runlayer",
+      "name": "Runlayer",
+      "category": "Security",
+      "summary": "Discover, secure and manage AI clients and MCPs across the enterprise.",
+      "covers": "Claude usage in Runlayer, with no API key to share.",
+      "notCovered": "Any Runlayer subscription is billed separately.",
+      "availability": "Not stated in source",
+      "fallback": "Not stated in source",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Anthropic launch announcement (Runlayer quote)",
+          "url": "https://claude.com/resources/articles/linked-billing-on-claude-platform",
+          "type": "anthropic"
+        },
+        {
+          "label": "Claude Marketplace: Runlayer",
+          "url": "https://claude.com/marketplace/agents-products/runlayer",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "tessera-ai",
+      "name": "Tessera AI",
+      "category": "Infrastructure",
+      "summary": "AI platform that maps your digital estate to de-risk enterprise transformation.",
+      "covers": "Claude usage in Tessera, using the customer's own Claude organization.",
+      "notCovered": "Any Tessera subscription is billed separately.",
+      "availability": "Not stated in source",
+      "fallback": "Not stated in source",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Anthropic launch announcement (Tessera quote)",
+          "url": "https://claude.com/resources/articles/linked-billing-on-claude-platform",
+          "type": "anthropic"
+        },
+        {
+          "label": "Claude Marketplace: Tessera AI",
+          "url": "https://claude.com/marketplace/agents-products/tessera-ai",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "tines-3b",
+      "name": "Tines 3B",
+      "category": "Security",
+      "summary": "Environment for teams to build, deploy and operationalize secure AI software.",
+      "covers": "Claude API usage in Tines 3B and Tines Stories, via an Anthropic connector set to the \"Linked billing\" connection type.",
+      "notCovered": "API keys remain supported; Tines' own subscription is separate.",
+      "availability": "Not stated in source",
+      "fallback": "Not stated in source",
+      "launchDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Tines blog: Put Claude to work across your business",
+          "url": "https://www.tines.com/blog/put-claude-to-work-across-your-business-with-tines/",
+          "type": "platform"
+        },
+        {
+          "label": "Tines 3B docs: Connect your AI provider",
+          "url": "https://docs.3b.tines.com/en/articles/16050726-connect-your-ai-provider",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Tines 3B",
+          "url": "https://claude.com/marketplace/agents-products/tines-3b",
+          "type": "anthropic"
+        }
+      ]
+    },
+    {
+      "id": "warp",
+      "name": "Warp",
+      "category": "Code",
+      "summary": "Open platform for building and running cloud software factories.",
+      "covers": "The Warp Agent on desktop, CLI, web and cloud, including subagents and factory runs billed to the team.",
+      "notCovered": "Claude Code and other tools that connect directly to Anthropic; Bedrock, Vertex AI or custom endpoints.",
+      "availability": "Warp Enterprise only",
+      "fallback": "Can charge the team's Warp balance",
+      "launchDate": "2026-11-17",
+      "platformPostDate": "2026-11-17",
+      "added": "2026-11-19",
+      "lastVerified": "2026-11-19",
+      "launchCohort": true,
+      "sources": [
+        {
+          "label": "Warp blog: Warp now supports linked billing",
+          "url": "https://www.warp.dev/blog/warp-now-supports-linked-billing-with-claude-platform",
+          "type": "platform"
+        },
+        {
+          "label": "Warp docs: Managing Claude linked billing",
+          "url": "https://docs.warp.dev/agents/inference/claude-platform-linked-billing/",
+          "type": "platform"
+        },
+        {
+          "label": "Claude Marketplace: Warp",
+          "url": "https://claude.com/marketplace/agents-products/warp",
+          "type": "anthropic"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Claude linked billing tracker (AusBizStack)
+
+> Independent, source-cited list of platforms that support Anthropic's Claude linked billing (beta, launched 2026-11-17). Not affiliated with Anthropic. Last updated 2026-11-19.
+
+Linked billing lets a customer link its Claude Platform (Console) organization to a third-party app; Anthropic then bills that organization directly for the Claude API usage the app runs for it. Only organizations billed directly by Anthropic (prepaid credit or invoice) can link. Claude Pro/Max/Ultra/Team/Enterprise subscriptions and Claude via Bedrock, Vertex AI, Foundry or cloud marketplaces cannot.
+
+## Data
+- [platforms.json](https://ausbizstack.github.io/claude-linked-billing/platforms.json): machine-readable list (name, category, coverage, availability, fallback, launch date, last verified, sources)
+
+## Primary sources
+- [Anthropic announcement](https://claude.com/resources/articles/linked-billing-on-claude-platform)
+- [Release notes, 2026-11-17](https://platform.claude.com/docs/en/release-notes/overview)
+- [Developer docs: Linked billing](https://platform.claude.com/docs/en/manage-claude/oauth-apps/organization-billing-connections)
+- [Help Center: Offer linked billing in your platform](https://support.claude.com/en/articles/18467110-offer-linked-billing-in-your-platform)
+- [Help Center: Use your Claude Platform account in a third-party app](https://support.claude.com/en/articles/18467148-use-your-claude-platform-account-in-a-third-party-app)
+- [Claude Marketplace](https://claude.com/marketplace/agents-products)
+
+## Platforms (19)
+- [Asana](https://claude.com/resources/articles/linked-billing-on-claude-platform) (Productivity): Claude usage that powers Asana's agentic work management, including AI Studio and AI Teammates. Verified 2026-11-19.
+- [ClickHouse Cloud](https://clickhouse.com/docs/products/cloud/features/ai-ml/linked-billing-claude-platform) (Data): All Claude model usage across ClickHouse Cloud products, such as ClickHouse Agents, at your Claude organization's rates and commitments. Verified 2026-11-19.
+- [Cosmos by Harness](https://claude.com/resources/articles/linked-billing-on-claude-platform) (Code): Claude API usage in Cosmos by Harness. Verified 2026-11-19.
+- [Factory](https://claude.com/resources/articles/linked-billing-on-claude-platform) (Code): Claude usage in Factory. An admin links the Claude organization once instead of sharing an API key. Verified 2026-11-19.
+- [Gumloop](https://docs.gumloop.com/help/connectors/link-your-claude-organization) (Productivity): Claude model calls in Gumloop agents and flows, at 0 Gumloop model credits (same as bring-your-own-key). Verified 2026-11-19.
+- [Higgsfield AI](https://higgsfield.ai/blog/higgsfield-anthropic-linked-billing) (Creative): Claude usage in Supercomputer chats (web, mobile, Slack, Telegram) and the studio assistants, plus their sub-agents and context compaction. Playable Ads runs on Enterprise plans. Verified 2026-11-19.
+- [Kilo Code](https://blog.kilo.ai/p/kilo-now-supports-linked-billing) (Code): Claude API usage in all Kilo features through the Kilo Gateway, including Kilo Desktop, Cloud Agents, the CLI and Code Reviews. Personal and organization links. Verified 2026-11-19.
+- [Linear](https://linear.app/docs/linear-cloud-coding-agent) (Productivity): Model usage for Claude Code coding sessions in Linear's cloud coding agent, including sessions started by Loops. Verified 2026-11-19.
+- [Major](https://docs.major.build/settings/models) (Code): Claude usage from chats, agents and apps that use Major's AI proxy. Verified 2026-11-19.
+- [Mintlify](https://www.mintlify.com/blog/claude-linked-billing) (Code): Claude API usage from the Mintlify assistant, agent, automations and Autopilot, per project. Verified 2026-11-19.
+- [Niteshift](https://docs.niteshift.dev/customizing-agents/model-access) (Code): Claude usage from Niteshift tasks, billed to the linked Claude organization under its existing terms. Verified 2026-11-19.
+- [Omni Analytics](https://claude.com/resources/articles/linked-billing-on-claude-platform) (Data): Claude usage in Omni, traceable back to Omni alongside Omni's own usage tracking. Verified 2026-11-19.
+- [OpenArt](https://claude.com/resources/articles/linked-billing-on-claude-platform) (Creative): Claude API usage in OpenArt's agentic layer. Verified 2026-11-19.
+- [Railway](https://blog.railway.com/p/linked-billing-claude-platform) (Code): Claude API usage in Railway Agent, Cloud Agents and the Slack and Discord bots. Verified 2026-11-19.
+- [Ramp Router](https://docs.router.com/guides/claude-organization-billing) (Infrastructure): Claude requests Router sends directly to Anthropic, across its Responses, Chat Completions and Messages endpoints, for every company API key. Verified 2026-11-19.
+- [Runlayer](https://claude.com/resources/articles/linked-billing-on-claude-platform) (Security): Claude usage in Runlayer, with no API key to share. Verified 2026-11-19.
+- [Tessera AI](https://claude.com/resources/articles/linked-billing-on-claude-platform) (Infrastructure): Claude usage in Tessera, using the customer's own Claude organization. Verified 2026-11-19.
+- [Tines 3B](https://www.tines.com/blog/put-claude-to-work-across-your-business-with-tines/) (Security): Claude API usage in Tines 3B and Tines Stories, via an Anthropic connector set to the "Linked billing" connection type. Verified 2026-11-19.
+- [Warp](https://www.warp.dev/blog/warp-now-supports-linked-billing-with-claude-platform) (Code): The Warp Agent on desktop, CLI, web and cloud, including subagents and factory runs billed to the team. Verified 2026-11-19.
