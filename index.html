@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AusBizStack Intelligence (@ausbizstack) — Deterministic B2B Data, KYB, Agent-Readiness &amp; MCP Actor Fleet</title>
-  <meta name="description" content="AusBizStack Intelligence (@ausbizstack) builds 11 pay-per-event Apify Actors: B2B tech-stack, AI Search (GEO / llms.txt), DNS/DMARC, Australian ABN KYB, Shopify pixels, ATS hiring signals, website screenshots, company enrichment and agent-readiness (poppy.json, MCP, A2A)." />
+  <meta name="description" content="AusBizStack Intelligence (@ausbizstack) builds 12 pay-per-event Apify Actors: B2B tech-stack, AI Search (GEO / llms.txt), DNS/DMARC, Australian ABN KYB, Shopify pixels, ATS hiring signals, website screenshots, company enrichment, agent-readiness (poppy.json, MCP, A2A) and bulk Lighthouse / Core Web Vitals audits." />
   <style>
     :root {
       --bg: #07090e;
@@ -626,7 +626,8 @@
         <span class="brand-handle">@ausbizstack</span>
       </a>
       <nav class="nav-links">
-        <a href="#fleet">11-Actor Fleet</a>
+        <a href="#fleet">12-Actor Fleet</a>
+        <a href="guides/">How-to Guides</a>
         <a href="#explorer">Live Dataset Explorer (40 Samples)</a>
         <a href="#make-blueprints">Make.com Blueprints</a>
         <a href="#templates">Sheets Templates</a>
@@ -650,7 +651,7 @@
       </div>
       <div class="stats-grid">
         <div class="stat-box">
-          <div class="stat-num">11 Actors</div>
+          <div class="stat-num">12 Actors</div>
           <div class="stat-label">All live on the Apify Store</div>
         </div>
         <div class="stat-box">
@@ -658,7 +659,7 @@
           <div class="stat-label">Verified Enriched B2B &amp; ABN Production Records</div>
         </div>
         <div class="stat-box">
-          <div class="stat-num">$0.003–$0.025</div>
+          <div class="stat-num">$0.002–$0.025</div>
           <div class="stat-label">Transparent Pay-Per-Event Pricing (No Subscriptions)</div>
         </div>
         <div class="stat-box">
@@ -671,9 +672,9 @@
     <section id="fleet">
       <div class="section-header">
         <div class="section-eyebrow">APIFY STORE FLEET · @AUSBIZSTACK</div>
-        <h2 class="section-title">11 Pay-Per-Event B2B Intelligence Actors</h2>
+        <h2 class="section-title">12 Pay-Per-Event B2B Intelligence Actors</h2>
         <p class="section-desc">
-          Ten Actors run on high-concurrency HTTP/2 and DNS-over-HTTPS with no headless Chromium. The Website Screenshot API uses Playwright for full-page, mobile and PDF capture. Failed or blocked inputs are never charged. Concurrency defaults vary by Actor.
+          Ten Actors run on high-concurrency HTTP/2 and DNS-over-HTTPS with no headless Chromium. The Website Screenshot API uses Playwright for full-page, mobile and PDF capture, and the Lighthouse auditor runs Google Lighthouse 13 in headless Chrome. Failed or blocked inputs are never charged. Concurrency defaults vary by Actor.
         </p>
       </div>
       <div class="actors-grid">
@@ -1086,6 +1087,43 @@
       </div>
     </article>
     
+    <article class="actor-card">
+      <div class="actor-card-top">
+        <div class="actor-meta-row">
+          <span class="actor-num">ACTOR #12</span>
+          <span class="status-badge badge-live">LIVE ON APIFY STORE</span>
+        </div>
+        <h3 class="actor-title">
+          <a href="https://apify.com/ausbizstack/lighthouse-core-web-vitals-bulk-auditor" target="_blank" rel="noopener noreferrer">Lighthouse &amp; Core Web Vitals Bulk Auditor – PageSpeed Scores</a>
+        </h3>
+        <div class="actor-slug"><code>ausbizstack/lighthouse-core-web-vitals-bulk-auditor</code></div>
+        <p class="actor-desc">Real Google Lighthouse 13 audits for a list of domains or URLs: performance, accessibility, best-practices and SEO scores, lab Core Web Vitals (LCP, CLS, TBT), ranked fixes, page weight, mobile + desktop, free HTML reports and score monitoring. Optional real-user field data with your own PageSpeed key.</p>
+        <div class="cat-row"><span class="cat-pill">SEO_TOOLS</span><span class="cat-pill">DEVELOPER_TOOLS</span><span class="cat-pill">AUTOMATION</span></div>
+        <div class="fields-block">
+          <div class="fields-label">KEY DETERMINISTIC OUTPUT FIELDS</div>
+          <div class="fields-list"><code>performance</code><code>accessibility</code><code>seo</code><code>performanceGrade</code><code>coreWebVitals</code><code>topFixes</code><code>pageWeight</code><code>lcpElement</code><code>htmlReportUrl</code><code>monitor</code></div>
+        </div>
+      </div>
+      <div class="actor-card-bottom">
+        <div class="pricing-strip">
+          <div>
+            <span class="price-val">$0.012</span>
+            <span class="price-unit">/ page audit</span>
+            <div class="event-tag">Event: <code>Page audited with Lighthouse</code> · $0.002 with your own PageSpeed API key</div>
+          </div>
+          <div class="perf-meta">
+            <div>Node.js · Lighthouse 13 · Chrome</div>
+            <div class="speed-tag">⚡ One audit per 4 GB · mobile, desktop or both</div>
+          </div>
+        </div>
+        <div class="event-tag" style="margin:8px 0;color:#10b981">✅ Zero Charge for Failed Pages ($0 on invalid, blocked, timed-out or error pages)</div>
+        <div class="card-actions">
+          <a href="https://apify.com/ausbizstack/lighthouse-core-web-vitals-bulk-auditor" target="_blank" rel="noopener noreferrer" class="btn-primary">Open Actor on Apify Store →</a>
+          <a href="guides/bulk-core-web-vitals-audit.html" class="btn-secondary">How-to guide →</a>
+        </div>
+      </div>
+    </article>
+    
 
       </div>
     </section>
@@ -1460,6 +1498,20 @@
       </div>
     </section>
 
+    <section id="guides">
+      <div class="section-header">
+        <div class="section-eyebrow">STEP-BY-STEP · SAMPLE INPUTS · MAKE &amp; N8N</div>
+        <h2 class="section-title">How-to Guides</h2>
+        <p class="section-desc">Practical walk-throughs with real input JSON, how to read the output, and how to automate each job.</p>
+      </div>
+      <div class="bp-list">
+        <div class="bp-card"><div class="bp-info"><div class="bp-title-row"><span class="actor-num">EMAIL SECURITY</span><strong><a href="guides/bulk-dmarc-spf-dkim-audit.html">Bulk-check DMARC, SPF and DKIM for a whole client list</a></strong></div></div></div>
+        <div class="bp-card"><div class="bp-info"><div class="bp-title-row"><span class="actor-num">AI SEARCH &amp; AGENTS</span><strong><a href="guides/ai-crawler-readiness-check.html">Check if a website is ready for AI crawlers and agents (llms.txt, robots.txt, MCP)</a></strong></div></div></div>
+        <div class="bp-card"><div class="bp-info"><div class="bp-title-row"><span class="actor-num">WEB PERFORMANCE</span><strong><a href="guides/bulk-core-web-vitals-audit.html">Run bulk Lighthouse and Core Web Vitals audits for many websites</a></strong></div></div></div>
+        <div class="bp-card"><div class="bp-info"><div class="bp-title-row"><span class="actor-num">LEAD GENERATION</span><strong><a href="guides/tech-stack-lead-lists.html">Build tech-stack lead lists from a list of domains</a></strong></div></div></div>
+      </div>
+    </section>
+
     <section id="mcp-config">
       <div class="section-header">
         <div class="section-eyebrow">MODEL CONTEXT PROTOCOL (MCP) &amp; REST API</div>
@@ -1483,7 +1535,7 @@
         "-y",
         "@apify/actors-mcp-server",
         "--actors",
-        "ausbizstack/b2b-tech-stack-contact-abn-enricher,ausbizstack/ai-geo-llms-txt-auditor,ausbizstack/b2b-email-security-dmarc-spf-auditor,ausbizstack/au-abn-kyb-commercial-lead-enricher,ausbizstack/shopify-ecommerce-tech-pixel-auditor,ausbizstack/b2b-hiring-intent-ats-careers-enricher,ausbizstack/b2b-saas-pricing-tier-plg-auditor,ausbizstack/multi-location-franchise-footprint-mapper,ausbizstack/website-screenshot-api,ausbizstack/company-enrichment-by-domain,ausbizstack/agent-readiness-bulk-auditor"
+        "ausbizstack/b2b-tech-stack-contact-abn-enricher,ausbizstack/ai-geo-llms-txt-auditor,ausbizstack/b2b-email-security-dmarc-spf-auditor,ausbizstack/au-abn-kyb-commercial-lead-enricher,ausbizstack/shopify-ecommerce-tech-pixel-auditor,ausbizstack/b2b-hiring-intent-ats-careers-enricher,ausbizstack/b2b-saas-pricing-tier-plg-auditor,ausbizstack/multi-location-franchise-footprint-mapper,ausbizstack/website-screenshot-api,ausbizstack/company-enrichment-by-domain,ausbizstack/agent-readiness-bulk-auditor,ausbizstack/lighthouse-core-web-vitals-bulk-auditor"
       ],
       "env": {
         "APIFY_TOKEN": "YOUR_APIFY_API_TOKEN"
