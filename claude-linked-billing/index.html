@@ -503,14 +503,14 @@
         </div>
         <div>
           <!-- Waitlist: configured in site.config.json (provider, endpoint, contactEmail). See README. -->
-          <form class="wl-form" id="waitlist" action="./waitlist-preview.html" method="get" data-endpoint="" novalidate>
+          <form class="wl-form" id="waitlist" action="https://formspree.io/f/xzervqzv" method="post" data-endpoint="https://formspree.io/f/xzervqzv" novalidate>
             <label class="lbl" for="email">Join the waitlist</label>
             <div class="field">
-              <input id="email" type="email" inputmode="email" autocomplete="email" required placeholder="you@company.com" aria-describedby="privacy">
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="you@company.com" aria-describedby="privacy">
               <button class="btn btn-primary" type="submit">Notify me</button>
             </div>
-            <div class="hp" aria-hidden="true"><label for="hp-field">Leave this field empty</label><input id="hp-field" type="text" tabindex="-1" autocomplete="off" data-1p-ignore data-lpignore="true" data-form-type="other"></div>
-            <noscript><span class="ns">JavaScript is off: the waitlist isn't open yet, so submitting just opens a page that says so. Nothing is sent.</span></noscript>
+            <div class="hp" aria-hidden="true"><label for="hp-field">Leave this field empty</label><input id="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off" data-1p-ignore data-lpignore="true" data-form-type="other"></div>
+            <noscript><span class="ns">JavaScript is off: submitting takes you to Formspree's confirmation page.</span></noscript>
             <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
             <p class="privacy" id="privacy"><strong>Privacy:</strong> AusBizStack collects only your email address, to send you a launch notice for Prospect Brief. We won't sell it or use it for anything else. We keep it only until you unsubscribe or the waitlist closes, then delete it. It's held by Formspree, our form provider, which may store it outside Australia. You can unsubscribe at any time with the link in any email, or ask us to access, correct or delete it at <a href="mailto:ausbizstack@mail.grokbot.com">ausbizstack@mail.grokbot.com</a>. We handle personal information under the Australian Privacy Principles.</p>
           </form>
