@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to check if a website is ready for AI crawlers and agents (llms.txt, robots.txt, MCP) | AusBizStack</title>
+  <meta name="description" content="Check llms.txt, AI crawler rules in robots.txt, schema.org and agent discovery files for one site or a whole list, using two AusBizStack Actors on Apify. Includes sample input and fix files." />
+  <link rel="canonical" href="https://ausbizstack.github.io/guides/ai-crawler-readiness-check.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to check if a website is ready for AI crawlers and agents (llms.txt, robots.txt, MCP)" />
+  <meta property="og:description" content="Check llms.txt, AI crawler rules in robots.txt, schema.org and agent discovery files for one site or a whole list, using two AusBizStack Actors on Apify. Includes sample input and fix files." />
+  <meta property="og:url" content="https://ausbizstack.github.io/guides/ai-crawler-readiness-check.html" />
+  <link rel="stylesheet" href="guides.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to check if a website is ready for AI crawlers and agents (llms.txt, robots.txt, MCP)", "description": "Check llms.txt, AI crawler rules in robots.txt, schema.org and agent discovery files for one site or a whole list, using two AusBizStack Actors on Apify. Includes sample input and fix files.", "tool": [{"@type": "HowToTool", "name": "Apify"}], "url": "https://ausbizstack.github.io/guides/ai-crawler-readiness-check.html", "publisher": {"@type": "Organization", "name": "AusBizStack", "url": "https://ausbizstack.github.io/"}}</script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="../" class="brand">
+        <span class="brand-mark">AB</span>
+        <span>AusBizStack Intelligence</span>
+        <span class="brand-handle">@ausbizstack</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../#fleet">12-Actor Fleet</a>
+        <a href="../guides/">How-to Guides</a>
+        <a href="../#make-blueprints">Make.com Blueprints</a>
+        <a href="../#templates">Sheets Templates</a>
+        <a href="../#mcp-config">Claude &amp; Cursor MCP</a>
+        <a href="https://apify.com/ausbizstack" target="_blank" rel="noopener noreferrer" class="nav-cta">Apify Store Profile →</a>
+      </nav>
+    </div>
+  </header>
+  <main class="guide-wrap">
+<div class="breadcrumb"><a href="../">Home</a> › <a href="./">Guides</a></div>
+<h1>How to check if a website is ready for AI crawlers and agents</h1>
+<p><strong>Who this is for:</strong> SEO and GEO (generative engine optimisation) agencies, site owners and developers who want to know whether ChatGPT, Claude, Perplexity and other AI assistants can reach, read and use a site, and what to change if they can't.</p>
+<p><strong>Tools used:</strong></p>
+<ul>
+<li><a href="https://apify.com/ausbizstack/agent-readiness-bulk-auditor" target="_blank" rel="noopener noreferrer">Agent-Readiness Auditor | poppy.json, llms.txt &amp; MCP Checker</a>: a 0-100 score from 15 evidence-backed checks, plus ready-to-paste fix files.</li>
+<li><a href="https://apify.com/ausbizstack/ai-geo-llms-txt-auditor" target="_blank" rel="noopener noreferrer">llms.txt Generator &amp; Checker – AI Crawler Checker &amp; GEO Audit</a>: checks llms.txt and AI-crawler rules, and generates draft <code>llms.txt</code>, <code>llms-full.txt</code> and JSON-LD for each site.</li>
+</ul>
+<h2>What "AI-ready" means in practice</h2>
+<p>There is no single standard, so check the signals that AI systems actually use today:</p>
+<ol>
+<li><strong>robots.txt rules for AI user agents.</strong> Crawlers such as <code>GPTBot</code>, <code>OAI-SearchBot</code>, <code>ChatGPT-User</code>, <code>ClaudeBot</code>, <code>PerplexityBot</code> and <code>Google-Extended</code> each read their own <code>User-agent</code> group. A blanket <code>Disallow: /</code> for one of them removes the site from that system.</li>
+<li><strong>A firewall or CDN that lets AI agents through.</strong> robots.txt can allow a bot while a WAF still blocks it. The Agent-Readiness Auditor requests the homepage with the documented <code>ChatGPT-User</code> user agent and compares the answer with a browser request.</li>
+<li><strong><code>/llms.txt</code>.</strong> A Markdown index of the site's key pages, proposed at <a href="https://llmstxt.org/" target="_blank" rel="noopener noreferrer">llmstxt.org</a>.</li>
+<li><strong>Content in the raw HTML.</strong> Many AI crawlers don't run JavaScript, so a page that only renders client-side can look empty.</li>
+<li><strong>schema.org JSON-LD</strong> (Organization or LocalBusiness, WebSite, and a page type such as Service, Product or FAQPage).</li>
+<li><strong>Agent discovery files</strong> for sites that offer an API or agent: an MCP server card, an A2A Agent Card (<code>/.well-known/agent-card.json</code>), OpenAPI or an RFC 9727 <code>/.well-known/api-catalog</code>, and <code>/.well-known/poppy.json</code> (Personal Agent Protocol).</li>
+</ol>
+<h2>Step 1: Score the sites</h2>
+<p>Open the <a href="https://apify.com/ausbizstack/agent-readiness-bulk-auditor" target="_blank" rel="noopener noreferrer">Agent-Readiness Auditor</a>, click <strong>Try for free</strong>, and paste your domains. JSON input:</p>
+<pre><code class="language-json">{
+  &quot;domains&quot;: [&quot;yourclient.com.au&quot;, &quot;https://www.anotherclient.com/pricing&quot;, &quot;hello@thirdclient.com&quot;],
+  &quot;includeFixSnippets&quot;: true,
+  &quot;leadThreshold&quot;: 50,
+  &quot;reportTitle&quot;: &quot;AI agent-readiness report&quot;
+}
+</code></pre>
+<p>URLs and email addresses are reduced to their domain. Each domain takes roughly 1-5 seconds.</p>
+<p><strong>Read the output:</strong></p>
+<ul>
+<li><strong>Overview</strong> view: <code>agentReadinessScore</code>, <code>grade</code> (A 80-100 down to F 0-34), <code>hasLlmsTxt</code>, <code>blockedAiCrawlers</code>, <code>firewallBlocksAiAgents</code>, <code>hasJsonLd</code>, <code>hasMcpDiscovery</code> and <code>topFix</code>.</li>
+<li><strong>Fixes &amp; snippets</strong> view: a prioritised fix list and <code>fixSnippets</code> (a draft <code>llms.txt</code> built from the site's own links, <code>robots.txt</code> lines, Organization JSON-LD and a minimal <code>poppy.json</code>).</li>
+<li>Key-value store: <code>REPORT_HTML</code> (print to PDF for a client), <code>REPORT_CSV</code> and <code>REPORT_MD</code>.</li>
+</ul>
+<p>Checks that a site blocks (401, 403, 429 or a bot challenge) are left out of the score and marked as unverified, never reported as "missing".</p>
+<h2>Step 2: Generate the llms.txt and JSON-LD deliverables</h2>
+<p>For sites that need the files written, run the <a href="https://apify.com/ausbizstack/ai-geo-llms-txt-auditor" target="_blank" rel="noopener noreferrer">llms.txt Generator &amp; Checker</a>:</p>
+<pre><code class="language-json">{
+  &quot;targets&quot;: [&quot;https://yourclient.com.au&quot;, &quot;https://anotherclient.com&quot;],
+  &quot;crawlInternalPages&quot;: true,
+  &quot;maxInternalPages&quot;: 2,
+  &quot;generateLlmsTxt&quot;: true,
+  &quot;generateLlmsFullTxt&quot;: true,
+  &quot;generateJsonLdSchema&quot;: true
+}
+</code></pre>
+<p>Each row includes <code>aiGeoReadinessScore</code>, <code>allowedAiCrawlers</code>, <code>blockedAiCrawlers</code>, <code>missingRecommendedJsonLdTypes</code>, <code>identifiedGaps</code>, and the drafts in <code>generatedLlmsTxt</code>, <code>generatedLlmsFullTxt</code> and <code>generatedJsonLdSchema</code>.</p>
+<h2>Step 3: Apply the fixes</h2>
+<ol>
+<li><strong>Decide on AI crawler access first.</strong> Allowing search and assistant agents (<code>OAI-SearchBot</code>, <code>ChatGPT-User</code>, <code>PerplexityBot</code>, <code>Claude-SearchBot</code>) while blocking training crawlers (<code>GPTBot</code>, <code>ClaudeBot</code>, <code>Google-Extended</code>, <code>CCBot</code>) is a common choice. It is a business decision, so confirm it with the site owner. Example robots.txt lines:</li>
+</ol>
+<pre><code class="language-text">User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+</code></pre>
+<ol>
+<li><strong>Publish <code>/llms.txt</code></strong> at the site root. Edit the generated draft so it lists the pages you want AI assistants to read first, with one-line descriptions.</li>
+<li><strong>Add the JSON-LD</strong> to the homepage <code>&lt;head&gt;</code> and check it with Google's <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer">Rich Results Test</a> or the <a href="https://validator.schema.org/" target="_blank" rel="noopener noreferrer">Schema.org validator</a>.</li>
+<li><strong>Check the firewall.</strong> If <code>firewallBlocksAiAgents</code> is true, allow the verified AI user agents in your CDN or WAF bot settings.</li>
+<li><strong>Re-run the audit</strong> to confirm the score moved.</li>
+</ol>
+<h2>Automate it</h2>
+<ul>
+<li><strong>Make:</strong> the Apify app's <strong>Run an Actor</strong> and <strong>Get Dataset Items</strong> modules, then Google Sheets (<a href="https://docs.apify.com/platform/integrations/make" target="_blank" rel="noopener noreferrer">Apify's Make guide</a>). Starter blueprints: <a href="../templates/make/agent-readiness-bulk-auditor.blueprint.json">agent-readiness</a>, <a href="../templates/make/ai-geo-llms-txt-auditor.blueprint.json">llms.txt / GEO</a>.</li>
+<li><strong>n8n:</strong> the Apify node's <strong>Run an Actor and get dataset</strong> operation (<a href="https://docs.apify.com/platform/integrations/n8n" target="_blank" rel="noopener noreferrer">Apify's n8n guide</a>), or import our workflows: <a href="../templates/n8n/agent-readiness-bulk-auditor.workflow.json">agent-readiness</a>, <a href="../templates/n8n/ai-geo-llms-txt-auditor.workflow.json">llms.txt / GEO</a>.</li>
+<li><strong>AI agents (MCP):</strong> point Claude, Cursor or any MCP client at the hosted <a href="https://docs.apify.com/platform/integrations/mcp" target="_blank" rel="noopener noreferrer">Apify MCP server</a> with both tools preloaded:</li>
+</ul>
+<pre><code class="language-text">https://mcp.apify.com/?tools=ausbizstack/agent-readiness-bulk-auditor,ausbizstack/ai-geo-llms-txt-auditor
+</code></pre>
+<p>Sign in with Apify OAuth, or send <code>Authorization: Bearer &lt;your Apify token&gt;</code>.</p>
+<h2>Cost</h2>
+<ul>
+<li>Agent-Readiness Auditor: $0.02 per domain scored (Bronze $0.018, Silver $0.016, Gold and above $0.015).</li>
+<li>llms.txt Generator &amp; Checker: $0.025 per domain audited.</li>
+<li>Invalid, duplicate, unreachable and timed-out rows are free on both. Check the Store pages for current prices.</li>
+</ul>
+<h2>FAQ</h2>
+<p><strong>Will an llms.txt file improve my rankings?</strong> Nobody can promise that. llms.txt is a proposal, and AI companies don't publish how they use it. It is cheap to publish and gives assistants a clean map of your site, which is why it's worth doing.</p>
+<p><strong>Is blocking GPTBot the same as blocking ChatGPT?</strong> No. OpenAI documents separate user agents for training (<code>GPTBot</code>), search (<code>OAI-SearchBot</code>) and user-initiated browsing (<code>ChatGPT-User</code>). Check each one.</p>
+<div class="guide-cta"><strong>Try it:</strong> <a href="https://apify.com/ausbizstack/agent-readiness-bulk-auditor" target="_blank" rel="noopener noreferrer">open the Actor on Apify Store →</a> · <a href="./">more guides</a></div>
+  </main>
+  <footer>
+    <div class="container">
+      <p><strong>AusBizStack Intelligence (<code>@ausbizstack</code>)</strong> · Pay-per-event Apify Actors for B2B data, email security, AI search readiness and web performance</p>
+      <p style="margin-top:0.4rem;"><a href="https://apify.com/ausbizstack" target="_blank" rel="noopener noreferrer">https://apify.com/ausbizstack</a> · <a href="../">Home</a> · <a href="./">All guides</a></p>
+    </div>
+  </footer>
+</body>
+</html>

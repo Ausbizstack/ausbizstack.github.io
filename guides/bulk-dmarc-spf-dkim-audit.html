@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to bulk-check DMARC, SPF and DKIM for a whole client list | AusBizStack</title>
+  <meta name="description" content="Audit DMARC, SPF and DKIM for hundreds of domains in one run with the AusBizStack DMARC Checker on Apify, get copy-paste DNS fixes, and push results to Google Sheets with Make or n8n." />
+  <link rel="canonical" href="https://ausbizstack.github.io/guides/bulk-dmarc-spf-dkim-audit.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to bulk-check DMARC, SPF and DKIM for a whole client list" />
+  <meta property="og:description" content="Audit DMARC, SPF and DKIM for hundreds of domains in one run with the AusBizStack DMARC Checker on Apify, get copy-paste DNS fixes, and push results to Google Sheets with Make or n8n." />
+  <meta property="og:url" content="https://ausbizstack.github.io/guides/bulk-dmarc-spf-dkim-audit.html" />
+  <link rel="stylesheet" href="guides.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to bulk-check DMARC, SPF and DKIM for a whole client list", "description": "Audit DMARC, SPF and DKIM for hundreds of domains in one run with the AusBizStack DMARC Checker on Apify, get copy-paste DNS fixes, and push results to Google Sheets with Make or n8n.", "tool": [{"@type": "HowToTool", "name": "Apify"}], "url": "https://ausbizstack.github.io/guides/bulk-dmarc-spf-dkim-audit.html", "publisher": {"@type": "Organization", "name": "AusBizStack", "url": "https://ausbizstack.github.io/"}}</script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="../" class="brand">
+        <span class="brand-mark">AB</span>
+        <span>AusBizStack Intelligence</span>
+        <span class="brand-handle">@ausbizstack</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../#fleet">12-Actor Fleet</a>
+        <a href="../guides/">How-to Guides</a>
+        <a href="../#make-blueprints">Make.com Blueprints</a>
+        <a href="../#templates">Sheets Templates</a>
+        <a href="../#mcp-config">Claude &amp; Cursor MCP</a>
+        <a href="https://apify.com/ausbizstack" target="_blank" rel="noopener noreferrer" class="nav-cta">Apify Store Profile →</a>
+      </nav>
+    </div>
+  </header>
+  <main class="guide-wrap">
+<div class="breadcrumb"><a href="../">Home</a> › <a href="./">Guides</a></div>
+<h1>How to bulk-check DMARC, SPF and DKIM for a whole client list</h1>
+<p><strong>Who this is for:</strong> MSPs, IT providers, deliverability consultants and agencies that look after email for many domains and want one table showing who is exposed to spoofing, and what DNS record fixes it.</p>
+<p><strong>Tool used:</strong> <a href="https://apify.com/ausbizstack/b2b-email-security-dmarc-spf-auditor" target="_blank" rel="noopener noreferrer">DMARC Checker – Bulk DMARC, SPF &amp; DKIM Email Security Audit</a> (Apify Store, pay per domain).</p>
+<h2>What you get per domain</h2>
+<p>One row per domain with, among others:</p>
+<ul>
+<li><code>dmarcPolicy</code> (<code>reject</code>, <code>quarantine</code>, <code>none</code> or missing), <code>dmarcPct</code>, alignment and <code>rua</code>/<code>ruf</code> reporting addresses</li>
+<li><code>spfEnforcement</code> (<code>-all</code>, <code>~all</code>, <code>?all</code>, <code>+all</code> or missing), <code>spfIncludes</code> and <code>spfLookupCountEstimate</code>, with <code>spfExceeds10LookupLimit</code> flagging the RFC 7208 10-lookup limit</li>
+<li><code>activeDkimSelectors</code>: DKIM keys found by probing 13 common selectors (for example <code>google</code>, <code>selector1</code>, <code>selector2</code>, <code>k1</code>)</li>
+<li>BIMI, MTA-STS, TLS-RPT and CAA presence, MX provider (<code>emailProvider</code>) and any secure email gateway</li>
+<li><code>spoofingRiskLevel</code> (<code>CRITICAL</code>, <code>HIGH</code>, <code>MODERATE</code>, <code>LOW</code>) and scores for email and web-header security</li>
+<li><code>recommendedDnsRecords</code>: copy-paste DMARC/SPF records for each gap</li>
+</ul>
+<p>Everything is read from public DNS and public HTTP headers. Nothing is sent to the domain's mail server.</p>
+<h2>Step 1: Collect the domains</h2>
+<p>Export the client or prospect list from your CRM, PSA or spreadsheet and keep just the domain column. Website URLs and bare domains both work; duplicates are fine.</p>
+<h2>Step 2: Run the Actor</h2>
+<ol>
+<li>Open the <a href="https://apify.com/ausbizstack/b2b-email-security-dmarc-spf-auditor" target="_blank" rel="noopener noreferrer">Actor page</a> and click <strong>Try for free</strong> (a free Apify account comes with monthly platform credit).</li>
+<li>Paste your domains into <strong>Target Domains</strong>, or switch to the JSON editor and use:</li>
+</ol>
+<pre><code class="language-json">{
+  &quot;domains&quot;: [&quot;clientone.com.au&quot;, &quot;clienttwo.com&quot;, &quot;https://www.clientthree.co.uk&quot;],
+  &quot;probeDkimSelectors&quot;: true,
+  &quot;checkHttpSecurityHeaders&quot;: true,
+  &quot;generateRemediationPack&quot;: true,
+  &quot;maxConcurrency&quot;: 10,
+  &quot;requestTimeoutSecs&quot;: 5
+}
+</code></pre>
+<ol>
+<li>Click <strong>Start</strong>. Results appear in the <strong>Output</strong> tab as rows finish. Export CSV, Excel or JSON from there.</li>
+</ol>
+<h2>Step 3: Triage the results</h2>
+<p>A simple order that works for most lists:</p>
+<ol>
+<li><strong>No DMARC record</strong> (<code>dmarcPolicy</code> missing): anyone can send mail as the domain and receivers get no policy.</li>
+<li><strong><code>p=none</code></strong>: monitoring only. Spoofed mail is still delivered. Check <code>dmarcRua</code> is set so reports go somewhere before you tighten the policy.</li>
+<li><strong>SPF problems</strong>: <code>+all</code> or <code>?all</code>, a missing record, or <code>spfExceeds10LookupLimit: true</code> (SPF permerror risk).</li>
+<li><strong>No DKIM selector found</strong>: either DKIM is not set up, or it uses a selector outside the 13 probed. Confirm with the client's mail platform before calling it missing.</li>
+</ol>
+<p>Sort by <code>spoofingRiskLevel</code>, then filter on <code>dmarcPolicy</code>. The <code>recommendedDnsRecords</code> field gives a starting record for each fix. Review it before publishing: a DMARC <code>rua</code> address and the SPF include list must match the services the domain actually sends from.</p>
+<h2>Step 4: Automate it with Make or n8n</h2>
+<p><strong>Make:</strong> add the Apify app's <strong>Run an Actor</strong> module (choose this Actor, "Run synchronously" = Yes), then <strong>Get Dataset Items</strong> with the run's default dataset ID, then Google Sheets <strong>Bulk Add Rows</strong>. Apify documents this pattern in its <a href="https://docs.apify.com/platform/integrations/make" target="_blank" rel="noopener noreferrer">Make integration guide</a>. Our starter blueprint is at <a href="../templates/make/b2b-email-security-dmarc-spf-auditor.blueprint.json">templates/make/b2b-email-security-dmarc-spf-auditor.blueprint.json</a>.</p>
+<p><strong>n8n:</strong> install the Apify node (<code>@apify/n8n-nodes-apify</code>, see <a href="https://docs.apify.com/platform/integrations/n8n" target="_blank" rel="noopener noreferrer">Apify's n8n guide</a>) and use <strong>Run an Actor and get dataset</strong>, or import our HTTP-based workflow: <a href="../templates/n8n/b2b-email-security-dmarc-spf-auditor.workflow.json">templates/n8n/b2b-email-security-dmarc-spf-auditor.workflow.json</a>. Setup notes: <a href="../templates/b2b-email-security-dmarc-spf-auditor/README.md">template README</a>.</p>
+<p><strong>Monthly re-check:</strong> save your input as an Apify <strong>Task</strong> and attach a <strong>Schedule</strong> (for example the first Monday of each month). DNS changes show up as changed rows in the next run.</p>
+<p><strong>Direct API call</strong> (any tool that can send HTTP):</p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/ausbizstack~b2b-email-security-dmarc-spf-auditor/run-sync-get-dataset-items?format=json&quot; \
+  -H &quot;Authorization: Bearer YOUR_APIFY_API_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;domains&quot;: [&quot;clientone.com.au&quot;, &quot;clienttwo.com&quot;]}'
+</code></pre>
+<h2>Cost</h2>
+<p>$0.01 per domain audited on the Free tier ($10 per 1,000), lower on Apify's Bronze, Silver and Gold plans. Invalid, duplicate and unreachable domains are not charged. Current prices are on the <a href="https://apify.com/ausbizstack/b2b-email-security-dmarc-spf-auditor" target="_blank" rel="noopener noreferrer">Store page</a>.</p>
+<h2>FAQ</h2>
+<p><strong>Does it send test emails?</strong> No. It only reads public DNS records and public HTTP headers.</p>
+<p><strong>Can it prove DKIM is missing?</strong> No. DKIM selectors can be any name. The Actor reports the selectors it found among 13 common ones, so treat "none found" as "check with the mail platform".</p>
+<p><strong>Can I use it from an AI agent?</strong> Yes, through the <a href="https://docs.apify.com/platform/integrations/mcp" target="_blank" rel="noopener noreferrer">Apify MCP server</a>: <code>https://mcp.apify.com/?tools=ausbizstack/b2b-email-security-dmarc-spf-auditor</code>.</p>
+<div class="guide-cta"><strong>Try it:</strong> <a href="https://apify.com/ausbizstack/b2b-email-security-dmarc-spf-auditor" target="_blank" rel="noopener noreferrer">open the Actor on Apify Store →</a> · <a href="./">more guides</a></div>
+  </main>
+  <footer>
+    <div class="container">
+      <p><strong>AusBizStack Intelligence (<code>@ausbizstack</code>)</strong> · Pay-per-event Apify Actors for B2B data, email security, AI search readiness and web performance</p>
+      <p style="margin-top:0.4rem;"><a href="https://apify.com/ausbizstack" target="_blank" rel="noopener noreferrer">https://apify.com/ausbizstack</a> · <a href="../">Home</a> · <a href="./">All guides</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to run bulk Lighthouse and Core Web Vitals audits for many websites | AusBizStack</title>
+  <meta name="description" content="Audit performance, SEO and accessibility scores plus LCP, CLS and TBT for a list of sites in one run with real Google Lighthouse on Apify, get ranked fixes and HTML reports, and schedule weekly monitoring with Make or n8n." />
+  <link rel="canonical" href="https://ausbizstack.github.io/guides/bulk-core-web-vitals-audit.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to run bulk Lighthouse and Core Web Vitals audits for many websites" />
+  <meta property="og:description" content="Audit performance, SEO and accessibility scores plus LCP, CLS and TBT for a list of sites in one run with real Google Lighthouse on Apify, get ranked fixes and HTML reports, and schedule weekly monitoring with Make or n8n." />
+  <meta property="og:url" content="https://ausbizstack.github.io/guides/bulk-core-web-vitals-audit.html" />
+  <link rel="stylesheet" href="guides.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to run bulk Lighthouse and Core Web Vitals audits for many websites", "description": "Audit performance, SEO and accessibility scores plus LCP, CLS and TBT for a list of sites in one run with real Google Lighthouse on Apify, get ranked fixes and HTML reports, and schedule weekly monitoring with Make or n8n.", "tool": [{"@type": "HowToTool", "name": "Apify"}], "url": "https://ausbizstack.github.io/guides/bulk-core-web-vitals-audit.html", "publisher": {"@type": "Organization", "name": "AusBizStack", "url": "https://ausbizstack.github.io/"}}</script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="../" class="brand">
+        <span class="brand-mark">AB</span>
+        <span>AusBizStack Intelligence</span>
+        <span class="brand-handle">@ausbizstack</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../#fleet">12-Actor Fleet</a>
+        <a href="../guides/">How-to Guides</a>
+        <a href="../#make-blueprints">Make.com Blueprints</a>
+        <a href="../#templates">Sheets Templates</a>
+        <a href="../#mcp-config">Claude &amp; Cursor MCP</a>
+        <a href="https://apify.com/ausbizstack" target="_blank" rel="noopener noreferrer" class="nav-cta">Apify Store Profile →</a>
+      </nav>
+    </div>
+  </header>
+  <main class="guide-wrap">
+<div class="breadcrumb"><a href="../">Home</a> › <a href="./">Guides</a></div>
+<h1>How to run bulk Lighthouse and Core Web Vitals audits for many websites</h1>
+<p><strong>Who this is for:</strong> web and SEO agencies auditing client or prospect sites, developers checking which templates are slow, and anyone who wants a weekly alert when a deploy makes pages slower.</p>
+<p><strong>Tool used:</strong> <a href="https://apify.com/ausbizstack/lighthouse-core-web-vitals-bulk-auditor" target="_blank" rel="noopener noreferrer">Lighthouse &amp; Core Web Vitals Bulk Auditor</a> (Apify Store, pay per page audit). It runs the official <code>lighthouse</code> npm package (v13) in Google Chrome, the same engine as PageSpeed Insights and Chrome DevTools.</p>
+<h2>What you get per page and device</h2>
+<ul>
+<li>Performance, accessibility, best-practices and SEO scores (0-100), an overall score and an A-F performance grade</li>
+<li>Lab Core Web Vitals: LCP, CLS and TBT (the lab stand-in for INP), plus FCP, Speed Index, TTI and TTFB, each rated good / needs-improvement / poor, and <code>coreWebVitals.passesLab</code></li>
+<li><code>topFixes</code>: performance opportunities ranked by estimated time saved, then failing accessibility, SEO and best-practice checks, each with a plain-English fix and a docs link</li>
+<li>Page weight by type, third-party share and the heaviest third parties</li>
+<li>The LCP element and where its time goes</li>
+<li>Optional full Lighthouse HTML report per page (<code>htmlReportUrl</code>)</li>
+</ul>
+<h2>Step 1: Build the URL list</h2>
+<p>Bare domains audit the homepage. Full URLs audit that page. To cover more than the homepage without listing pages by hand, set <code>maxPagesPerDomain</code> (1-10) and the Actor adds pages from the sitemap or homepage links, one per section.</p>
+<h2>Step 2: Run the audit</h2>
+<p>Open the <a href="https://apify.com/ausbizstack/lighthouse-core-web-vitals-bulk-auditor" target="_blank" rel="noopener noreferrer">Actor page</a>, click <strong>Try for free</strong>, and use the form or this JSON:</p>
+<pre><code class="language-json">{
+  &quot;urls&quot;: [&quot;clientone.com.au&quot;, &quot;https://www.clienttwo.com/pricing&quot;, &quot;clientthree.co.uk&quot;],
+  &quot;strategy&quot;: &quot;both&quot;,
+  &quot;maxPagesPerDomain&quot;: 3,
+  &quot;saveHtmlReports&quot;: true,
+  &quot;maxFixes&quot;: 8,
+  &quot;reportTitle&quot;: &quot;Website speed audit&quot;
+}
+</code></pre>
+<ul>
+<li><code>strategy</code>: <code>mobile</code> (the default, and what PageSpeed Insights shows first), <code>desktop</code> or <code>both</code>.</li>
+<li>Memory: the default is 4 GB, and the Actor runs one audit per 4 GB so parallel audits don't skew scores. Give the run more memory to finish big lists faster.</li>
+</ul>
+<h2>Step 3: Read the results</h2>
+<ul>
+<li>The <strong>Scores and Core Web Vitals</strong> view is the summary table. Sort by <code>performance</code> to find the slowest pages.</li>
+<li>The <strong>Ranked fixes</strong> view lists what to fix first on each page, with links to each HTML report.</li>
+<li>The key-value store has a run summary (<code>OUTPUT</code>), a printable <code>REPORT_HTML</code> and <code>REPORT_CSV</code>.</li>
+</ul>
+<p>Google's published "good" thresholds for Core Web Vitals are LCP of 2.5 seconds or less, CLS of 0.1 or less and INP of 200 ms or less (<a href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer">web.dev/vitals</a>). Lab runs can't measure INP, so TBT is reported in its place.</p>
+<h2>Step 4 (optional): Add real-user field data</h2>
+<p>Lab scores come from one simulated load. For the real-user data Google uses in Search (Chrome UX Report), add your own free PageSpeed Insights API key in <code>pageSpeedApiKey</code>. Those audits run through Google's API, add a <code>fieldData</code> block (LCP, INP and CLS at the 75th percentile with ratings and <code>passesCoreWebVitals</code>), and cost less because Google does the work. Get a key from the <a href="https://developers.google.com/speed/docs/insights/v5/get-started" target="_blank" rel="noopener noreferrer">PageSpeed Insights API docs</a>.</p>
+<h2>Step 5: Monitor scores every week</h2>
+<ol>
+<li>Add <code>"monitorName": "client-sites"</code> and, optionally, <code>"alertOnScoreDrop": 5</code> to the input.</li>
+<li>Save it as an Apify <strong>Task</strong> and attach a <strong>Schedule</strong> (for example every Monday at 6 am).</li>
+<li>From the second run on, each row has a <code>monitor</code> block with the change since the last run, <code>regression: true|false</code> and <code>regressedCategories</code>.</li>
+</ol>
+<p>Scores move a few points between runs on any machine, so keep <code>alertOnScoreDrop</code> at 5 or more.</p>
+<h2>Automate it with Make or n8n</h2>
+<ul>
+<li><strong>Make:</strong> Apify app <strong>Watch Actor Runs</strong> (fires when the scheduled run finishes), then <strong>Get Dataset Items</strong>, then a filter on <code>monitor.regression = true</code>, then Slack, email or Google Sheets. Apify's <a href="https://docs.apify.com/platform/integrations/make" target="_blank" rel="noopener noreferrer">Make guide</a> shows the modules.</li>
+<li><strong>n8n:</strong> the Apify node's <strong>On new Apify Event</strong> trigger (Succeeded) for this Actor, then <strong>Get Dataset Items</strong>, then an IF node on <code>monitor.regression</code> (<a href="https://docs.apify.com/platform/integrations/n8n" target="_blank" rel="noopener noreferrer">Apify's n8n guide</a>).</li>
+<li><strong>API:</strong></li>
+</ul>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/ausbizstack~lighthouse-core-web-vitals-bulk-auditor/runs&quot; \
+  -H &quot;Authorization: Bearer YOUR_APIFY_API_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;urls&quot;: [&quot;clientone.com.au&quot;], &quot;strategy&quot;: &quot;mobile&quot;, &quot;monitorName&quot;: &quot;client-sites&quot;}'
+</code></pre>
+<p>Lighthouse audits take tens of seconds each, so for long lists start the run asynchronously like this and fetch the dataset when it finishes, rather than waiting on a synchronous call.</p>
+<h2>Cost</h2>
+<ul>
+<li>$0.012 per page audit (one page on one device) with Lighthouse in Chrome on Apify. Bronze $0.011, Silver $0.010, Gold $0.009.</li>
+<li>$0.002 per page audit when you bring your own PageSpeed Insights API key.</li>
+<li>Invalid, duplicate, unreachable, blocked, timed-out and error pages are free. HTML reports, monitoring and CSV are included.</li>
+<li>Example from the Store page: 100 pages on mobile and desktop is 200 audits, which is $2.40 (or $0.40 with your own key).</li>
+</ul>
+<h2>FAQ</h2>
+<p><strong>Why is my score different from PageSpeed Insights?</strong> Both use Lighthouse with simulated mobile throttling, but each run varies a little with network and server response. Compare trends across runs, not single points.</p>
+<p><strong>Is it safe to audit an untrusted URL list?</strong> The audited page runs in a sandboxed headless Chrome whose requests go through a filtering proxy that refuses private, internal and cloud-metadata addresses.</p>
+<div class="guide-cta"><strong>Try it:</strong> <a href="https://apify.com/ausbizstack/lighthouse-core-web-vitals-bulk-auditor" target="_blank" rel="noopener noreferrer">open the Actor on Apify Store →</a> · <a href="./">more guides</a></div>
+  </main>
+  <footer>
+    <div class="container">
+      <p><strong>AusBizStack Intelligence (<code>@ausbizstack</code>)</strong> · Pay-per-event Apify Actors for B2B data, email security, AI search readiness and web performance</p>
+      <p style="margin-top:0.4rem;"><a href="https://apify.com/ausbizstack" target="_blank" rel="noopener noreferrer">https://apify.com/ausbizstack</a> · <a href="../">Home</a> · <a href="./">All guides</a></p>
+    </div>
+  </footer>
+</body>
+</html>
