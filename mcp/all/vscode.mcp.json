@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "ausbizstack-all": {
+      "type": "http",
+      "url": "https://mcp.apify.com/?tools=ausbizstack/b2b-tech-stack-contact-abn-enricher,ausbizstack/ai-geo-llms-txt-auditor,ausbizstack/b2b-email-security-dmarc-spf-auditor,ausbizstack/au-abn-kyb-commercial-lead-enricher,ausbizstack/shopify-ecommerce-tech-pixel-auditor,ausbizstack/b2b-hiring-intent-ats-careers-enricher,ausbizstack/b2b-saas-pricing-tier-plg-auditor,ausbizstack/multi-location-franchise-footprint-mapper,ausbizstack/website-screenshot-api,ausbizstack/company-enrichment-by-domain,ausbizstack/agent-readiness-bulk-auditor,ausbizstack/lighthouse-core-web-vitals-bulk-auditor"
+    }
+  }
+}

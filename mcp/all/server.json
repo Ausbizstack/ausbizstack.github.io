@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Ausbizstack/ausbizstack-all",
+  "title": "AusBizStack Actors (all 12)",
+  "description": "All 12 AusBizStack Apify Actors: B2B enrichment, email security, AI readiness, page speed.",
+  "repository": {
+    "url": "https://github.com/Ausbizstack/ausbizstack.github.io",
+    "source": "github",
+    "subfolder": "mcp/all"
+  },
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/Ausbizstack/ausbizstack.github.io/tree/main/mcp/all",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.apify.com/?tools=ausbizstack/b2b-tech-stack-contact-abn-enricher,ausbizstack/ai-geo-llms-txt-auditor,ausbizstack/b2b-email-security-dmarc-spf-auditor,ausbizstack/au-abn-kyb-commercial-lead-enricher,ausbizstack/shopify-ecommerce-tech-pixel-auditor,ausbizstack/b2b-hiring-intent-ats-careers-enricher,ausbizstack/b2b-saas-pricing-tier-plg-auditor,ausbizstack/multi-location-franchise-footprint-mapper,ausbizstack/website-screenshot-api,ausbizstack/company-enrichment-by-domain,ausbizstack/agent-readiness-bulk-auditor,ausbizstack/lighthouse-core-web-vitals-bulk-auditor",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional. Your Apify API token as 'Bearer <token>'. Leave empty to sign in to Apify with OAuth.",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
